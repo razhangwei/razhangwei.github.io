@@ -20,7 +20,10 @@ export default defineAstroPaperConfig({
   },
   features: {
     lightAndDarkMode: true,
-    dynamicOgImage: true,
+    // The existing runtime font-fetching OG routes cannot be prerendered for
+    // GitHub Pages. Use the curated static site image until a build-safe
+    // generator with local font assets is introduced.
+    dynamicOgImage: false,
     showArchives: true,
     showBackButton: true,
     editPost: {

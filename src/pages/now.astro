@@ -1,0 +1,43 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`Now | ${config.site.title}`}
+  description="What Wei Zhang is paying attention to now."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Now"
+    pageDesc="A lightweight snapshot, updated whenever it becomes stale."
+    class="app-prose now-page"
+  >
+    <p class="now-stamp">Last refreshed · September 2026</p>
+    <h2>Thinking about</h2>
+    <ul>
+      <li>
+        Generative recommendation and user modeling for retrieval and ranking.
+      </li>
+      <li>
+        How semantic representations preserve the useful details of behavior.
+      </li>
+      <li>Reliable evaluation for agentic and language-model systems.</li>
+    </ul>
+    <h2>Reading and building</h2>
+    <p>
+      I am keeping more durable notes on recommender-systems papers, production
+      ML, and the tools that make research and writing easier to sustain.
+    </p>
+    <p>
+      This is a <a href="https://nownownow.com/about">now page</a>, inspired by
+      Derek Sivers.
+    </p>
+  </Main>
+  <Footer />
+</Layout>

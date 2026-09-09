@@ -1,0 +1,70 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+
+const work = [
+  {
+    type: "Research",
+    title: "CAUSE",
+    description:
+      "A research project on learning causal structure from event sequences.",
+    href: "https://github.com/razhangwei/CAUSE",
+  },
+  {
+    type: "Talk",
+    title: "Large-scale online user representations",
+    description:
+      "An ACM Web Conference talk on representation learning for ads personalization.",
+    href: "https://www2024.thewebconf.org/",
+  },
+  {
+    type: "Open source",
+    title: "KindleCrafter",
+    description:
+      "A small tool for turning Markdown into a Kindle-friendly reading artifact.",
+    href: "https://github.com/razhangwei/KindleCrafter",
+  },
+  {
+    type: "Open source",
+    title: "Claude plugins custom",
+    description:
+      "Personal experiments with agent workflows, skills, and developer tooling.",
+    href: "https://github.com/razhangwei/claude-plugins-custom",
+  },
+];
+---
+
+<Layout
+  title={`Selected work | ${config.site.title}`}
+  description="Selected public research, talks, and open-source projects by Wei Zhang."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Selected work"
+    pageDesc="Public research, talks, and small tools."
+  >
+    <div class="work-grid">
+      {
+        work.map(item => (
+          <a
+            class="work-card"
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>{item.type}</span>
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+            <small>Open ↗</small>
+          </a>
+        ))
+      }
+    </div>
+  </Main>
+  <Footer />
+</Layout>
