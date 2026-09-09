@@ -1,9 +1,4 @@
-import {
-  defineConfig,
-  envField,
-  fontProviders,
-  svgoOptimizer,
-} from "astro/config";
+import { defineConfig, envField, svgoOptimizer } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -50,42 +45,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  fonts: [
-    {
-      name: "Newsreader",
-      cssVariable: "--font-newsreader",
-      provider: fontProviders.google(),
-      fallbacks: ["Georgia", "Cambria", "Times New Roman", "serif"],
-      weights: [400, 500, 600, 700],
-      styles: ["normal", "italic"],
-      formats: ["woff2", "woff", "ttf"],
-    },
-    {
-      name: "Inter",
-      cssVariable: "--font-inter",
-      provider: fontProviders.google(),
-      fallbacks: [
-        "system-ui",
-        "-apple-system",
-        "Segoe UI",
-        "Helvetica",
-        "Arial",
-        "sans-serif",
-      ],
-      weights: [400, 500, 600, 700, 800],
-      styles: ["normal"],
-      formats: ["woff2", "woff", "ttf"],
-    },
-    {
-      name: "JetBrains Mono",
-      cssVariable: "--font-jetbrains-mono",
-      provider: fontProviders.google(),
-      fallbacks: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-      weights: [400, 500, 600],
-      styles: ["normal"],
-      formats: ["woff2", "woff", "ttf"],
-    },
-  ],
   env: {
     schema: {
       PUBLIC_GOOGLE_SITE_VERIFICATION: envField.string({

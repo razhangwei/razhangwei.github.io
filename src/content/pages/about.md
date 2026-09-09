@@ -1,21 +1,21 @@
 ---
 title: "About"
-description: "Wei Zhang — Staff ML engineer at Meta. Recsys, multimodal LLMs, production systems."
+description: "Wei Zhang is a Staff ML engineer at Meta writing about recommendation systems, multimodal models, and machine-learning systems."
 ---
 
-I'm Wei. I'm a Staff ML engineer at Meta, where I work on multimodal LLMs and large-scale recommendation systems.
+I'm Wei Zhang, a Staff ML engineer at Meta. I work on machine-learning systems where modeling, data, evaluation, and product experience have to improve together—especially recommendation systems and multimodal models.
 
-Most of my career has been about shipping ML at billion-user scale — ranking, retrieval, multimodal models, and the infra that holds it all together. I started in academic ML (PhD in CS at UW–Madison with [David Page](https://duke.edu/), focused on causal inference and healthcare ML), then moved to industry to build systems that touch a lot of people.
+Before industry, I completed a PhD in Computer Sciences at the University of Wisconsin–Madison in 2020. That work gave me a durable interest in sequence modeling: how to turn messy histories, shifting contexts, and incomplete feedback into useful predictions.
 
-Lately I've been spending more time thinking about the frontier: alignment-adjacent questions, post-training and RLHF (which has a lot more in common with rec-sys than people usually admit), and the architectural choices that will shape the next few generations of foundation models.
+I care most about the gap between a promising model and a dependable system. The interesting questions rarely belong to one layer alone: a representation changes retrieval; a retrieval decision changes the labels a model will later see; an evaluation choice changes what an organization learns to optimize. I use this site to make those connections more explicit.
 
 ## What you'll find here
 
-- **Deep dives** — long-form posts drawn from production experience: scaling, ranking, multimodal, RLHF, the messy parts.
-- **Research notes** — reactions to papers and releases I've been reading. Closer to a notebook than a review.
-- **Short takes** — links + a paragraph or two. The Simon-Willison-style format that keeps the site alive between long pieces.
+- **Essays** — considered pieces on recommendation, ML systems, and the craft of building with learning models.
+- **Research notes** — paper trails, working questions, and observations that are useful before they become a finished argument.
+- **Public work** — a small index of publications, open-source projects, and professional links.
 
-No paid tier, no comments, no popups. The [RSS feed](/rss.xml) is the canonical way to follow along.
+Everything here reflects my own views and only uses information that is appropriate to share publicly. The [RSS feed](/rss.xml) is the simplest way to follow along.
 
 ## Elsewhere
 

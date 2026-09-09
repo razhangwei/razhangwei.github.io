@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { postFilter } from "@/utils/postFilter";
+import config from "@/config";
+
+const notes = getSortedPosts(
+  (await getCollection("posts")).filter(
+    post => postFilter(post) && post.data.kind === "note"
+  )
+);
+---
+
+<Layout
+  title={`Research Notes | ${config.site.title}`}
+  description="Working notes on papers, systems, and ideas worth keeping."
+>
+  <Header />
+  <Breadcrumb />
+  <Main
+    pageTitle="Research notes"
+    pageDesc="Short, durable notes on papers, systems, and questions I am still thinking through."
+  >
+    <ul class="editorial-list">
+      {notes.map(note => <Card {...note} />)}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

@@ -1,36 +1,48 @@
 /* Register design tokens for Tailwind v4 */
 @theme inline {
   --color-background: var(--background);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-app: var(--font-newsreader);
-  --font-heading: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-app:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-heading:
+    Iowan Old Style, Palatino Linotype, Book Antiqua, Palatino, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --accent-foreground: #ffffff;
-  --muted: #e6e6e6;
-  --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --background: #f7f4ed;
+  --paper: #fdfbf6;
+  --surface: #eeebe3;
+  --surface-strong: #e4dfd4;
+  --foreground: #1e2725;
+  --accent: #46685c;
+  --accent-foreground: #fdfbf6;
+  --muted: #e9e5db;
+  --muted-foreground: #69716c;
+  --border: #d9d2c5;
 }
 
 /* Dark theme values */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --background: #1d2421;
+  --paper: #232b27;
+  --surface: #2b342f;
+  --surface-strong: #37413a;
+  --foreground: #ebe6dc;
+  --accent: #abc9b2;
+  --accent-foreground: #18201c;
+  --muted: #2c3530;
+  --muted-foreground: #bbc1b8;
+  --border: #465047;
 }
