@@ -46,7 +46,7 @@ jobs:
           done
           mkdir -p visual-review
           npx --yes playwright@1.56.1 screenshot --device="Desktop Chrome" --full-page http://127.0.0.1:4173/ visual-review/home-desktop.png
-          npx --yes playwright@1.56.1 screenshot --browser=chromium --device="iPhone 13" --full-page http://127.0.0.1:4173/ visual-review/home-mobile.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --full-page http://127.0.0.1:4173/ visual-review/home-mobile.png
 
       - uses: actions/upload-artifact@v4
         with:
