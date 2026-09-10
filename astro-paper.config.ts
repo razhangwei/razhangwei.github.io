@@ -5,7 +5,7 @@ export default defineAstroPaperConfig({
     url: "https://razhangwei.github.io/",
     title: "Wei Zhang",
     description:
-      "ML engineering at frontier scale — recsys, multimodal LLMs, production systems.",
+      "Staff Research Scientist — recommendation systems, multimodal models, and production ML systems.",
     author: "Wei Zhang",
     profile: "https://razhangwei.github.io/",
     ogImage: "default-og.jpg",
@@ -20,7 +20,10 @@ export default defineAstroPaperConfig({
   },
   features: {
     lightAndDarkMode: true,
-    dynamicOgImage: true,
+    // The existing runtime font-fetching OG routes cannot be prerendered for
+    // GitHub Pages. Use the curated static site image until a build-safe
+    // generator with local font assets is introduced.
+    dynamicOgImage: false,
     showArchives: true,
     showBackButton: true,
     editPost: {

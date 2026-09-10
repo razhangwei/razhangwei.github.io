@@ -1,0 +1,55 @@
+name: Visual PR review
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "public/**"
+      - "astro.config.ts"
+      - "astro-paper.config.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/visual-review.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    name: Desktop and mobile screenshots
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      - name: Capture homepage
+        run: |
+          npx --yes playwright@1.56.1 install --with-deps chromium
+          npx --yes serve@14 dist --listen 4173 > /tmp/site-preview.log 2>&1 &
+          for attempt in {1..20}; do
+            curl --fail --silent http://127.0.0.1:4173/ && break
+            sleep 1
+          done
+          mkdir -p visual-review
+          npx --yes playwright@1.56.1 screenshot --device="Desktop Chrome" --full-page http://127.0.0.1:4173/ visual-review/home-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --full-page http://127.0.0.1:4173/ visual-review/home-mobile.png
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-preview-screenshots
+          path: visual-review/
+          if-no-files-found: error
