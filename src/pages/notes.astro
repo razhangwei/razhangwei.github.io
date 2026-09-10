@@ -30,7 +30,9 @@ const notes = getSortedPosts(
     {
       notes.length > 0 ? (
         <ul class="editorial-list">
-          {notes.map(note => <Card {...note} />)}
+          {notes.map(note => (
+            <Card {...note} />
+          ))}
         </ul>
       ) : (
         <p class="text-muted-foreground">No public notes yet.</p>
