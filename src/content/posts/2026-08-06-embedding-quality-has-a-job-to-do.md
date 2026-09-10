@@ -1,5 +1,6 @@
 ---
 title: "Embedding quality has a job to do"
+draft: true
 pubDatetime: 2026-08-06T09:00:00-07:00
 description: "An embedding is not a product feature. Its quality depends on the decision it enables and the information it leaves behind."
 kind: note

@@ -1,50 +1,18 @@
 ---
-import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import IconRss from "@/assets/icons/IconRss.svg";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
-import Card from "@/components/Card.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import { getSortedPosts } from "@/utils/getSortedPosts";
 import config from "@/config";
 
-const { socials, posts: postsConfig } = config;
+const { socials } = config;
 
 const locale = Astro.currentLocale ?? config.site.lang;
 
-const posts = await getCollection("posts");
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const essays = sortedPosts.filter(
-  ({ data }) => !data.featured && data.kind === "essay"
-);
-const researchNotes = sortedPosts.filter(({ data }) => data.kind === "note");
 const homePath = getRelativeLocaleUrl(locale, "");
-
-const topics = [
-  {
-    title: "Recommendation systems",
-    description:
-      "Retrieval, ranking, feedback loops, and the product systems around them.",
-    href: getRelativeLocaleUrl(locale, "tags/recommendation-systems"),
-  },
-  {
-    title: "ML systems",
-    description:
-      "How models, data, evaluation, and serving shape one another in practice.",
-    href: getRelativeLocaleUrl(locale, "tags/ml-systems"),
-  },
-  {
-    title: "Research notes",
-    description:
-      "Questions, paper trails, and ideas worth keeping in public view.",
-    href: getRelativeLocaleUrl(locale, "notes"),
-  },
-];
 
 const structuredData = [
   {
@@ -111,14 +79,10 @@ const structuredData = [
       </div>
 
       <p class="mt-7 max-w-xl text-lg leading-relaxed sm:text-xl">
-        I’m Wei Zhang, a Staff ML engineer at Meta. I write about recommendation
-        systems, multimodal models, and the practical work of turning a learning
-        system into a useful product.
+        I’m Wei Zhang, a Staff ML engineer at Meta.
       </p>
       <p class="text-muted-foreground mt-4 max-w-xl leading-relaxed">
-        This is a public notebook for durable ideas: essays when an argument has
-        earned structure, and notes while the questions are still open. Read
-        more
+        This is a home for future writing and selected public work. Read more
         <LinkButton
           class="text-foreground hover:text-accent underline decoration-dashed underline-offset-4"
           href={getRelativeLocaleUrl(locale, "about")}
@@ -137,126 +101,6 @@ const structuredData = [
         )
       }
     </section>
-
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "py-12 sm:py-16",
-            {
-              "border-border border-b":
-                essays.length > 0 || researchNotes.length > 0,
-            },
-          ]}
-        >
-          <div class="mb-7 flex items-baseline justify-between gap-4">
-            <div>
-              <p class="text-accent text-sm font-semibold tracking-[0.14em] uppercase">
-                Start here
-              </p>
-              <h2 class="mt-2 text-3xl font-semibold tracking-tight">
-                Featured writing
-              </h2>
-            </div>
-          </div>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    {
-      essays.length > 0 && (
-        <section
-          id="latest-writing"
-          class="border-border border-b py-12 sm:py-16"
-        >
-          <div class="mb-7 flex items-end justify-between gap-4">
-            <div>
-              <p class="text-accent text-sm font-semibold tracking-[0.14em] uppercase">
-                Essays
-              </p>
-              <h2 class="mt-2 text-3xl font-semibold tracking-tight">
-                Latest writing
-              </h2>
-            </div>
-            <LinkButton
-              href={getRelativeLocaleUrl(locale, "posts")}
-              class="text-sm font-medium whitespace-nowrap"
-            >
-              All writing{" "}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <ul>
-            {essays.slice(0, Math.min(3, postsConfig.perIndex)).map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    <section id="topics" class="border-border border-b py-12 sm:py-16">
-      <p class="text-accent text-sm font-semibold tracking-[0.14em] uppercase">
-        Explore
-      </p>
-      <h2 class="mt-2 text-3xl font-semibold tracking-tight">
-        Topics I return to
-      </h2>
-      <div class="mt-7 grid gap-x-8 gap-y-6 sm:grid-cols-3">
-        {
-          topics.map(topic => (
-            <a
-              href={topic.href}
-              class="group border-border block border-t pt-4"
-            >
-              <h3 class="group-hover:text-accent text-lg font-semibold transition-colors">
-                {topic.title}
-              </h3>
-              <p class="text-muted-foreground mt-2 leading-relaxed">
-                {topic.description}
-              </p>
-            </a>
-          ))
-        }
-      </div>
-    </section>
-
-    {
-      researchNotes.length > 0 && (
-        <section
-          id="research-notes"
-          class="border-border border-b py-12 sm:py-16"
-        >
-          <div class="mb-7 flex items-end justify-between gap-4">
-            <div>
-              <p class="text-accent text-sm font-semibold tracking-[0.14em] uppercase">
-                Notebook
-              </p>
-              <h2 class="mt-2 text-3xl font-semibold tracking-tight">
-                Research notes
-              </h2>
-            </div>
-            <LinkButton
-              href={getRelativeLocaleUrl(locale, "notes")}
-              class="text-sm font-medium whitespace-nowrap"
-            >
-              All notes <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <ul>
-            {researchNotes.slice(0, 3).map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
 
     <section id="selected-work" class="py-12 sm:py-16">
       <p class="text-accent text-sm font-semibold tracking-[0.14em] uppercase">
@@ -278,9 +122,6 @@ const structuredData = [
           >
             Publications
           </h3>
-          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-            Academic work and citations.
-          </p>
         </a>
         <a
           href="https://github.com/razhangwei"
@@ -294,9 +135,6 @@ const structuredData = [
           >
             GitHub projects
           </h3>
-          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-            Experiments, tools, and open-source work.
-          </p>
         </a>
         <LinkButton
           href={getRelativeLocaleUrl(locale, "work")}
@@ -308,9 +146,6 @@ const structuredData = [
           >
             Work &amp; background
           </h3>
-          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-            A concise guide to my public professional profile.
-          </p>
         </LinkButton>
       </div>
     </section>

@@ -1,5 +1,6 @@
 ---
 title: "The system is part of the model"
+draft: true
 pubDatetime: 2026-06-18T09:00:00-07:00
 description: "A useful model is not a component with a score; it is a changing loop between representations, decisions, feedback, and people."
 kind: essay

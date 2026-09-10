@@ -12,17 +12,6 @@
   body {
     min-width: 20rem;
     background-color: var(--background);
-    background-image:
-      radial-gradient(
-        circle at 8% -12%,
-        color-mix(in srgb, var(--accent) 10%, transparent),
-        transparent 29rem
-      ),
-      radial-gradient(
-        circle at 98% 18%,
-        color-mix(in srgb, var(--accent) 6%, transparent),
-        transparent 24rem
-      );
     font-size: 1.0625rem;
     font-kerning: normal;
     line-height: 1.7;

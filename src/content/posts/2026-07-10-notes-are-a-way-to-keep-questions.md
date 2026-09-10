@@ -1,5 +1,6 @@
 ---
 title: "Research notes are a way to keep questions alive"
+draft: true
 pubDatetime: 2026-07-10T09:00:00-07:00
 description: "A short note is useful when it preserves the question a paper created, not merely the result it reported."
 kind: note

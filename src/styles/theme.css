@@ -21,16 +21,16 @@
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #f7f4ed;
-  --paper: #fdfbf6;
-  --surface: #eeebe3;
-  --surface-strong: #e4dfd4;
-  --foreground: #1e2725;
+  --background: #ffffff;
+  --paper: #ffffff;
+  --surface: #f6f7f6;
+  --surface-strong: #ecefed;
+  --foreground: #18201e;
   --accent: #46685c;
-  --accent-foreground: #fdfbf6;
-  --muted: #e9e5db;
-  --muted-foreground: #69716c;
-  --border: #d9d2c5;
+  --accent-foreground: #ffffff;
+  --muted: #f3f5f4;
+  --muted-foreground: #66706c;
+  --border: #dfe3e1;
 }
 
 /* Dark theme values */

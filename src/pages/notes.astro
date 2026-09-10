@@ -27,9 +27,15 @@ const notes = getSortedPosts(
     pageTitle="Research notes"
     pageDesc="Short, durable notes on papers, systems, and questions I am still thinking through."
   >
-    <ul class="editorial-list">
-      {notes.map(note => <Card {...note} />)}
-    </ul>
+    {
+      notes.length > 0 ? (
+        <ul class="editorial-list">
+          {notes.map(note => <Card {...note} />)}
+        </ul>
+      ) : (
+        <p class="text-muted-foreground">No public notes yet.</p>
+      )
+    }
   </Main>
   <Footer />
 </Layout>

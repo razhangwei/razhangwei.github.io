@@ -1,5 +1,6 @@
 ---
 title: "Evaluation is a product decision"
+draft: true
 pubDatetime: 2026-09-02T09:00:00-07:00
 description: "Metrics become part of the product when they determine which tradeoffs a learning system is allowed to make."
 kind: note
