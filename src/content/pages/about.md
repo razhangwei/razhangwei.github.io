@@ -1,9 +1,9 @@
 ---
 title: "About"
-description: "Wei Zhang is a Staff ML engineer at Meta writing about recommendation systems, multimodal models, and machine-learning systems."
+description: "Wei Zhang is a Staff Research Scientist at Meta writing about recommendation systems, multimodal models, and machine-learning systems."
 ---
 
-I'm Wei Zhang, a Staff ML engineer at Meta. I work on machine-learning systems where modeling, data, evaluation, and product experience have to improve together—especially recommendation systems and multimodal models.
+I'm Wei Zhang, a Staff Research Scientist at Meta. I work on machine-learning systems where modeling, data, evaluation, and product experience have to improve together—especially recommendation systems and multimodal models.
 
 Before industry, I completed a PhD in Computer Sciences at the University of Wisconsin–Madison in 2020. That work gave me a durable interest in sequence modeling: how to turn messy histories, shifting contexts, and incomplete feedback into useful predictions.
 

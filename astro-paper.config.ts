@@ -5,7 +5,7 @@ export default defineAstroPaperConfig({
     url: "https://razhangwei.github.io/",
     title: "Wei Zhang",
     description:
-      "ML engineering at frontier scale — recsys, multimodal LLMs, production systems.",
+      "Staff Research Scientist — recommendation systems, multimodal models, and production ML systems.",
     author: "Wei Zhang",
     profile: "https://razhangwei.github.io/",
     ogImage: "default-og.jpg",
